@@ -1,32 +1,107 @@
-header{
-    padding-top:20px;
+
+
+header {
+    padding-top: 20px;
+    
+
 }
-header .inner-main{
+
+header .inner-main {
+    position:fixed;
     box-shadow: 0px 0px 15px rgb(169, 166, 166);
     display: flex;
     padding: 14px 30px;
     border-radius: 45px;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(62, 119, 27, 0.8); 
+    z-index: 1;
+    position: relative;
+
 
 }
-header .inner-logo img{
+
+header .inner-logo img {
     height: 42px;
     width: auto;
 }
-header .inner-menu ul{
+
+header .inner-menu ul {
     list-style: none;
     padding: 0px;
     margin: 0px;
     display: flex;
 }
-header .inner-menu ul li{
-    margin-left: 25px;
+
+header .inner-menu ul li {
+    margin-left: 30px;
 }
-header .inner-menu li a{
+
+header .inner-menu li a {
+    position: relative;
+    color: black;
+    font-weight: bold;
     text-decoration: none;
- 
+    padding-bottom: 4px;
+    transition: color 0.4s ease;
+
 }
-header .inner-menu ul li a:hover{
+.inner-menu ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: -webkit-linear-gradient(-30deg, #9c9b99, #ecdcda); 
+    transition: width 0.4s ease;
+  }
+  
+  .inner-menu ul li a:hover::after,.inner-menu ul li a.active::after  {
+    width: 100%;
+  }
+
+header .inner-menu ul li a:hover {
     color: rgb(38, 208, 47);
 }
+.inner-search {
+    position: relative;
+    width: 70px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.search-icon {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);             
+    color: #6d6969;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.search-input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    padding-right: 40px;
+    transition: width 0.4s ease-in-out;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ccc;
+    height: 38px;
+    z-index: 1;
+}
+
+.search-input:focus {
+    width: 180px;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
