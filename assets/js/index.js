@@ -100,6 +100,99 @@
       menu.classList.remove('active');
     }
   });
-ss
+
+
+
+
+//CHUYỂN FORM
+const container = document.getElementById('container');
+ const registerBtn = document.getElementById('register');
+ const loginBtn = document.getElementById('login');
+ 
+ registerBtn.addEventListener('click', () => {
+     container.classList.add("active");
+ });
+ 
+ loginBtn.addEventListener('click', () => {
+     container.classList.remove("active");
+ });
+
+ function togglePasswordVisibility(type) {
+    var passwordField = document.getElementById(type === 'signup' ? 'signup-password' : 'signin-password');
+    var eyeIcon = document.getElementById(type === 'signup' ? 'signup-eye-icon' : 'signin-eye-icon');
+    var eyeSlashIcon = document.getElementById(type === 'signup' ? 'signup-eye-slash-icon' : 'signin-eye-slash-icon');
+    
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text'; 
+        eyeIcon.style.display = 'none';
+        eyeSlashIcon.style.display = 'block'; 
+    } else {
+        passwordField.type = 'password';
+        eyeIcon.style.display = 'block';
+        eyeSlashIcon.style.display = 'none';
+    }
+}
+
+
+
+
+//kéo form
+dragElement(document.getElementById("container"));
+
+function dragElement(elm) {
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+    elm.onmousedown = dragMouseDown;
+
+    function dragMouseDown(e) {
+        // Tránh kéo khi đang nhấn vào input, textarea, button
+        if (["INPUT", "TEXTAREA", "BUTTON"].includes(e.target.tagName)) return;
+
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+
+        elm.style.top = (elm.offsetTop - pos2*1.3) + "px";
+        elm.style.left = (elm.offsetLeft - pos1*1.3) + "px";
+    }
+
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+
+//ĐÓNG FORM//
+function openForm(){
+    const container = document.getElementById('container');
+    const registerBtn = document.getElementById('header-register');
+    const loginBtn = document.getElementById('header-login');
+    registerBtn.addEventListener('click', () => {
+        container.classList.add("active");
+    });
+    
+    loginBtn.addEventListener('click', () => {
+        container.classList.remove("active");
+    });
+    document.querySelector('.form').style.display = 'block';
+
+}
+
   
-  
+function closeForm() {
+    document.querySelector('.form').style.display = 'none';
+}
+
