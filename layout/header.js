@@ -26,7 +26,7 @@ header.innerHTML = `
                                 <a href="#">Cộng đồng</a>
                             </li>
                             <li>
-                                <a  id="news-section">Tin tức</a>
+                                <a href="#news-section"">Tin tức</a>
                             </li>
                             <li>
                                 <a href="#">Liên hệ</a>
