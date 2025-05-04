@@ -1,0 +1,128 @@
+ html {
+    scroll-behavior: smooth;
+ }
+ 
+/* Phần định nghĩa chung */
+:root {
+    --green-primary: #2e7d32;
+    --green-light: #e6f5e3;
+    --text-color: #333;
+    --font-family: 'Arial', sans-serif;
+  }
+  
+  /* Header */
+  header.news-header {
+    background: linear-gradient(to right, #bcf7bf, #d5f3d7);
+    background-color: var(--green-light);
+    padding: 40px 20px;
+    color: var(--green-primary);
+    font-family: var(--font-family);
+  }
+  .news-header .container {
+    max-width: 1000px;
+    margin: auto;
+  }
+  .news-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  .news-header p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-color);
+  }
+  
+  /* Latest news section */
+  .latest-news {
+    padding: 40px 20px;
+    font-family: var(--font-family);
+  }
+  .latest-news h2 {
+    font-size: 28px;
+    color: var(--green-primary);
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  .card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+  }
+  .card-content {
+    padding: 15px;
+  }
+  .card-content h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: var(--green-primary);
+  }
+  .card-content p {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+ 
+  
+  /* Nút Xem thêm */
+  .see-more {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .see-more-button {
+    background-color: var(--green-primary);
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .see-more-button:hover {
+    background-color: #112f13;
+    transform: scale(1.05); /* Phóng to nút khi hover */
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .news-header {
+      padding: 30px 15px;
+      text-align: center;
+    }
+    .news-header h1 {
+      font-size: 28px;
+    }
+    .news-header p {
+      font-size: 16px;
+    }
+    .latest-news h2 {
+      font-size: 24px;
+    }
+  }
+  @media (max-width: 480px) {
+    .news-header h1 {
+      font-size: 24px;
+    }
+    .news-header p,
+    .card-content p {
+      font-size: 15px;
+    }
+  }
+  
